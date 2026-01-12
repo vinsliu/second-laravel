@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('settings', function (Blueprint $table) {
             $table->id();
+            $table->string('theme');
+            $table->string('lang');
+            $table->foreignId('user_id')->constrained('users')->cascadeOnDelete();
+            $table->unique('user_id');
             $table->timestamps();
         });
     }
