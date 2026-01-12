@@ -5,15 +5,18 @@ namespace Database\Seeders;
 use Illuminate\Database\Seeder;
 use App\Models\User;
 
-class SettingsSeeder extends Seeder
+class OrderSeeder extends Seeder
 {
+    /**
+     * Run the database seeds.
+     */
     public function run(): void
     {
         $user = User::where('email', 'test@example.com')->first();
 
-        $user->settings()->create([
-            'theme' => 'dark',
-            'lang'  => 'fr'
+        $user->orders()->create([
+            'amount' => 50.00,
+            'status' => 'paid'
         ]);
     }
 }
